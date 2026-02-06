@@ -1,0 +1,26 @@
+  
+  Typescript usa fuertes metodos de seguridad que protejen a los datos primitivos como este ejemplo,
+  el cual declaro en el state que es de tipo number pero al momento de usarlo le doy un atributo booleano
+  me da un erro por el cambio que le estoy dando.
+
+  const [auth, setAuth] = useState(20)
+
+  setAuth(false)
+
+    en este caso se usa la redundancia, el ejemplo de abajo declara dos veces el mismo tipado de dato que 
+    es un number y esta mal, con que se deje el dato entre los parentesis tomara el tipo de dato que sera
+
+   const [auth, setAuth] = useState(20)
+
+
+   en la clase nos enseñaron una manera de migrar la funcion a ts pero yo descubri una que es la primera
+
+   1: export default function Guitar({guitar, addToCart}:{guitar: Guitar, addToCart: Function})
+
+   la de la clase es esta:
+
+   export default function Guitar({guitar, addToCart}:{guitar: Guitar, addToCart: (item: Guitar) => void})
+
+   el archivo de type.d.ts es el modelo se usa globalmente o por separado depende el uso que le quieras declarar,pero 
+   no es remendable por eso creo la carpeta de types y el archivo que lo puedes llamar de acuerdo a lo que necesites
+   es como una interfaz en angular
